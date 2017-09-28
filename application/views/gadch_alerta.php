@@ -15,7 +15,7 @@
                   </button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              <!-- /.box-tools -->
+              <!-- /.box-tools espero q esto este bien -->
             </div>
             <div class="box-body">
               <div class="box">
@@ -43,7 +43,7 @@
                                 <b>F. Solicitud :<?php echo $row->fecha_registro_p ?></b><br>
                                 <b>F. Salida : <?php echo $row->fecha_salida_p." ".$row->hora_salida_p ?></b>
                               </div>
-
+                              
                               <div class="col-md-4 pull-right">
                                 <a href="<?php echo base_url().'index.php/user/aprobar/1/'.$row->id_permiso ?>" > <span class="label label-success ">Aprobar</span> </a>
                                 <a href="<?php echo base_url().'index.php/user/aprobar/2/'.$row->id_permiso ?>">  <span class="label label-danger">Cancelar</span></a>

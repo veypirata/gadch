@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header with-border">
-                         <h4><b>Control de Ingreso y Salida del Personas a GADCH</b></h4><br>
+                         <h4><b>prueba 2</b></h4><br>
                           <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 
