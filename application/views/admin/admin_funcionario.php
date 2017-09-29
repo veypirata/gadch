@@ -10,7 +10,7 @@ include'inc/include.php';
                           <div class="box-tools pull-right">
                             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                             <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                          </div> 
+                          </div>
                         </div>
                     <!-- /.box-header -->
                         <div class="box-body">
@@ -57,19 +57,12 @@ include'inc/include.php';
                                     </div>
                                     <form role="form">
                                       <div class="box-body">
-                                        <div class="form-group">
-                                          <label for="exampleInputEmail1">Email address</label>
-                                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="exampleInputPassword1">Password</label>
-                                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
+
 
                                         <div class="cuentas" id="cuentas">
 
                                         </div>
-
+<label for=""></label>
                                       </div>
                                       <!-- /.box-body -->
 

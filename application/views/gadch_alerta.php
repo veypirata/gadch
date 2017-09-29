@@ -43,7 +43,7 @@
                                 <b>F. Solicitud :<?php echo $row->fecha_registro_p ?></b><br>
                                 <b>F. Salida : <?php echo $row->fecha_salida_p." ".$row->hora_salida_p ?></b>
                               </div>
-                              
+
                               <div class="col-md-4 pull-right">
                                 <a href="<?php echo base_url().'index.php/user/aprobar/1/'.$row->id_permiso ?>" > <span class="label label-success ">Aprobar</span> </a>
                                 <a href="<?php echo base_url().'index.php/user/aprobar/2/'.$row->id_permiso ?>">  <span class="label label-danger">Cancelar</span></a>
@@ -64,7 +64,7 @@
         <div class="col-md-5">
           <div class="box box-primary">
               <div class="box-header with-border">
-                  <h3 class="box-title">Historial del Mes Total :   <?php
+                  <h3 class="box-title">Historial del Mes   <?php
 
                   $aprobados=$db_default->query("SELECT * FROM permisos p inner join trabajadores t on p.id_funcionario = t.id_c WHERE id_inmediato_superior='$id_user' and (estado_p='1' or estado_p='2')  and MONTH(fecha_registro_p) = '$mes_actual' AND YEAR(fecha_registro_p) = '$anio_actual' ORDER BY p.fecha_revision_p DESC");
 

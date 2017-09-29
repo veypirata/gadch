@@ -44,9 +44,37 @@ $("body").on("click","#listar_redes  #facebook",function(event){
   },
   function(data){
     var fb = JSON.parse(data);
+    $('#cuentas').html(
+      '<label for="">'+nombre+'</label>'
+    );
     $.each(fb,function(i,items){
         $('#cuentas').append(
-      '<a href="'+items.url_facebook+'"  class="btn btn-block btn-primary btn-xs"> Ir a Cueta '+n+'</a>'
+
+
+      '<div class="col-md-12">'+
+                   '<div id="facebook">'+
+                       '<div class="panel-heading">'+
+                          ' <div class="row">'+
+                              ' <div class="col-xs-3">'+
+                                   '<i class="fa fa-facebook fa-5x"></i>'+
+                               '</div>'+
+                               '<div class="col-xs-9 text-right">'+
+                                 ' <div>Amigos De Facebook</div>'+
+                                  ' <div class="huge">'+items.amigos_facebook+'</div>'+
+
+                              ' </div>'+
+                          ' </div>'+
+                       '</div>'+
+                      ' <a href="'+items.url_facebook+'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="'+items.url_facebook+'">'+
+                          ' <div class="panel-footer">'+
+                              ' <span class="pull-left">Ir a Cueta '+n+'</span>'+
+                              ' <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>'+
+                              ' <div class="clearfix"></div>'+
+                          ' </div>'+
+                      ' </a>'+
+                  ' </div>'+
+               '</div>'
+
     );
     n++;
     });
@@ -56,6 +84,7 @@ $("body").on("click","#listar_redes  #facebook",function(event){
 });
 
 $("body").on("click","#listar_redes #twitter ",function(event){
+  var n=1;
   $('#cuentas',).empty();
   $('#titulo',).empty();
   $('#titulo').append('Twitter');
@@ -73,8 +102,36 @@ $("body").on("click","#listar_redes #twitter ",function(event){
     var tw = JSON.parse(data);
     $.each(tw,function(i,items){
         $('#cuentas').append(
-      '<a href="'+items.cuenta_twitter+'" class="btn btn-block btn-info btn-xs">Ir a Cuenta</a><br><br>'
+
+
+            '<div class="col-md-12">'+
+                         '<div class="panel panel-info">'+
+                             '<div class="panel-heading">'+
+                                ' <div class="row">'+
+                                    ' <div class="col-xs-3">'+
+                                         '<i class="fa fa-twitter fa-5x"></i>'+
+                                     '</div>'+
+                                     '<div class="col-xs-9 text-right">'+
+
+                                        ' <div class="huge">Tweets <i class="fa fa-arrow-circle-right"></i> '+items.tweets_twitter+'</div>'+
+                                        ' <div class="huge">Siguiendo <i class="fa fa-arrow-circle-right"></i>  '+items.siguiendo_twitter+'</div>'+
+                                        ' <div class="huge">Seguidores  <i class="fa fa-arrow-circle-right"></i> '+items.seguidores_twitter+'</div>'+
+                                        ' <div class="huge">Me Gusta <i class="fa fa-arrow-circle-right"></i>  '+items.me_gusta_twitter+'</div>'+
+
+                                    ' </div>'+
+                                ' </div>'+
+                             '</div>'+
+                            ' <a href="https://www.twitter.com/'+items.cuenta_twitter+'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="'+items.cuenta_twitter+'">'+
+                                ' <div class="panel-footer">'+
+                                    ' <span class="pull-left">Ir a Cueta '+n+'</span>'+
+                                    ' <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>'+
+                                    ' <div class="clearfix"></div>'+
+                                ' </div>'+
+                            ' </a>'+
+                        ' </div>'+
+                     '</div>'
     );
+    n++
     });
 
 

@@ -26,3 +26,12 @@
 <!-- imagen de la administracion -->
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon.ico">
+    <style media="screen">
+      #facebook{
+        background-color: #3c8dbc;
+        color: #ffffff;
+      }
+      .facebook{
+        background-color: #3c8dbc;
+      }
+    </style>
