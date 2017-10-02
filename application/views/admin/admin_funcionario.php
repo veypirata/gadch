@@ -54,7 +54,7 @@ include'inc/include.php';
                                      <td><?php echo  $row['nombreT'];?></td>
                                      <td><?php echo  $row['ci'];?></td>
                                      <td><?php echo  $row['secretaria'];?></td>
-                                     <td><a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-primary btn-xs" id="facebook" ><i class="fa fa-facebook"></i>acebook</a></td>
+                                     <td><a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-xs" id="facebook" ><i class="fa fa-facebook"></i>acebook</a></td>
                                      <td><a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-info btn-xs" id="twitter" ><i class="fa fa-twitter"></i> Twitter</a></td>
                                    </tr>
                                    <?php } ?>
@@ -79,9 +79,7 @@ include'inc/include.php';
                                       </div>
                                       <!-- /.box-body -->
 
-                                      <div class="box-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                      </div>
+                                  
                                     </form>
                                   </div>
                                 </div>
@@ -98,5 +96,5 @@ include'inc/include.php';
 
             </script>
       <?php include'inc/footer.php'; ?>
-        <script type="text/javascript" src="<?php echo base_url()?>assets/js/admin/listar_funcionario.js" >
+        <script type="text/javascript" src="<?php echo base_url()?>assets/js/admin/listar_funcionario.js" > </script>
       <?php include'inc/pie.php'; ?>

@@ -49,8 +49,6 @@ $("body").on("click","#listar_redes  #facebook",function(event){
     );
     $.each(fb,function(i,items){
         $('#cuentas').append(
-
-
       '<div class="col-md-12">'+
                    '<div id="facebook">'+
                        '<div class="panel-heading">'+
@@ -72,14 +70,25 @@ $("body").on("click","#listar_redes  #facebook",function(event){
                               ' <div class="clearfix"></div>'+
                           ' </div>'+
                       ' </a>'+
-                  ' </div>'+
+                  ' </div> <br>'+
+                '  <form class="form-horizontal">'+
+                  '  <div class="form-group">'+
+                      '<label for="inputEmail3" class="col-sm-3 control-label">Compartido</label>'+
+                      '<div class="col-sm-9">'+
+                        '<input type="number" class="form-control"  placeholder="Cantidad Compartido" value="'+idSelect+'">'+
+                      '</div>'+
+                    '</div>'+
+                    '<div class="form-group">'+
+                    ' <div class="col-sm-offset-3 col-sm-9">'+
+                      '<input type="submit" class="btn btn-block btn-xs" name="" id="facebook" value="Registrar">'+
+                      '<input type="submit"  class="btn btn-block btn-danger btn-xs" name="" value="Eliminar">'+
+                    '  </div>'+
+                    '</div>'+
+                  '  </form>'+
                '</div>'
-
     );
     n++;
     });
-
-
   });
 });
 
@@ -132,15 +141,23 @@ $("body").on("click","#listar_redes #twitter ",function(event){
                                 ' </div>'+
                             ' </a>'+
                         ' </div>'+
+                        '  <form class="form-horizontal">'+
+                          '  <div class="form-group">'+
+                              '<label for="inputEmail3" class="col-sm-3 control-label">Tweets</label>'+
+                              '<div class="col-sm-9">'+
+                                '<input type="number" class="form-control"  placeholder="Cantidad Compartido" value="'+idSelect+'">'+
+                              '</div>'+
+                            '</div>'+
+                            '<div class="form-group">'+
+                            ' <div class="col-sm-offset-3 col-sm-9">'+
+                              '<input type="submit" class="btn btn-block btn-info btn-xs" name=""  value="Registrar">'+
+                              '<input type="submit"  class="btn btn-block btn-danger btn-xs" name="" value="Eliminar">'+
+                            '  </div>'+
+                            '</div>'+
+                          '  </form>'+
                      '</div>'
-    );
-    n++
+            );
+            n++
     });
-
-
   });
-})
-
-
-
-$.material.init();
+});

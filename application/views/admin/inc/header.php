@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/material-fullpalette.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/bootstrap-select.min.css">
-        <script src="<?php echo base_url() ?>assets/admin/js/jquery-3.1.1.min.js"></script>
+        
 
 
 
