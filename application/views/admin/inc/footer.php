@@ -14,5 +14,5 @@
 
     <script src="<?php echo base_url() ?>assets/admin/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/js/dataTables.bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/admin/js/bootstrap-select.min.js"></script>
+
   <script src="<?php echo base_url() ?>assets/admin/js/app.min.js"></script>

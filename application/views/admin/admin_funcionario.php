@@ -30,7 +30,7 @@ include'inc/include.php';
 
                                </center>
 
-                               <table id="table1" class="display table table-condensed" collspacign="0" width="100%">
+                               <table id="tabla" class="display table table-condensed" collspacign="0" width="100%">
                                 <thead>
                                  <tr >
                                    <td>nº</td>
@@ -44,7 +44,20 @@ include'inc/include.php';
                                  </tr>
                                 </thead>
                                 <tbody>
-
+                                  <?php $n=0; foreach ($mostrar->result_array()  as  $row)
+                                  {
+                                   $n++;
+                                   ?>
+                                   <tr>
+                                     <td><?php echo $n;?></td>
+                                     <td><?php echo $row['id_c'];?></td>
+                                     <td><?php echo  $row['nombreT'];?></td>
+                                     <td><?php echo  $row['ci'];?></td>
+                                     <td><?php echo  $row['secretaria'];?></td>
+                                     <td><a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-primary btn-xs" id="facebook" ><i class="fa fa-facebook"></i>acebook</a></td>
+                                     <td><a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-info btn-xs" id="twitter" ><i class="fa fa-twitter"></i> Twitter</a></td>
+                                   </tr>
+                                   <?php } ?>
                                 </tbody>
 
                               </table>

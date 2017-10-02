@@ -1,4 +1,4 @@
-$.post(base_url+"index.php/admin_gadch/cargo_p",
+/*$.post(base_url+"index.php/admin_gadch/cargo_p",
 {
   'cargo':1,
   'contrato':1
@@ -26,7 +26,7 @@ function(data){
     'info':true,
     'filter':true,
   });
-});
+});*/
 $("body").on("click","#listar_redes  #facebook",function(event){
   var n=1;
   $('#cuentas',).empty();
@@ -99,6 +99,9 @@ $("body").on("click","#listar_redes #twitter ",function(event){
     'id_usuariot':id_trabajador1
   },
   function(data){
+    $('#cuentas').html(
+      '<label for="">'+nombre+'</label>'
+    );
     var tw = JSON.parse(data);
     $.each(tw,function(i,items){
         $('#cuentas').append(

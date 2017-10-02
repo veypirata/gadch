@@ -27,7 +27,7 @@ define('SERVER_NAME_LO', 'localhost');
 define('SERVER_NAME_OLINE', '200.87.15.243');
 define('SERVER_NAME_1', '192.168.20.129');
 define('SERVER_NAME_2', '192.168.94.8');
-define('SERVER_NAME_3', '192.168.97.8');
+define('SERVER_NAME_3', '192.168.97.250');
 define('SERVER_NAME_4', '192.168.98.8');
 define('SERVER_NAME_5', '192.168.193.8');
 define('SERVER_NAME_6', '192.168.196.8');
@@ -61,7 +61,7 @@ switch($nombreServerActual)
     case SERVER_NAME_2:
     $config['base_url'] = "http://192.168.94.8/gadch"; break;
     case SERVER_NAME_3:
-    $config['base_url'] = "http://192.168.97.8/gadch"; break;
+    $config['base_url'] = "http://192.168.97.250/gadch"; break;
     case SERVER_NAME_4:
     $config['base_url'] = "http://192.168.98.8/gadch"; break;
     case SERVER_NAME_5:
