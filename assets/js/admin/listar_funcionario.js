@@ -28,8 +28,13 @@ function(data){
   });
 });*/
 $( document ).ready(function() {
+  $("#listar_redes1").hide();
+});
 $("body").on("click","#listar_redes  #facebook",function(event){
   var n=1;
+  $('#label-form2').hide();
+  $("#input_text").hide();
+  $("#listar_redes1").show();
   $('#cuentas',).empty();
   $('#titulo',).empty();
   $('#titulo').append('Facebook');
@@ -54,8 +59,7 @@ $("body").on("click","#listar_redes  #facebook",function(event){
     $("#panel").removeClass();
     $("#panel").addClass(" box box-primary box-solid");
     $("#facebook1").removeClass();
-    $("#facebook1").addClass(" btn btn-block  btn-xs ");
-
+    $("#facebook1").addClass(" btn btn-block btn-primary  btn-xs ");
 
     $('#label-form').html(
       'Compartido'
@@ -94,6 +98,10 @@ $("body").on("click","#listar_redes  #facebook",function(event){
 
 $("body").on("click","#listar_redes #twitter ",function(event){
   var n=1;
+  $('#input_text').html("");
+  $('#label-form2').show();
+  $("#input_text").show();
+  $("#listar_redes1").show();
   $('#cuentas',).empty();
   $('#titulo',).empty();
   $('#titulo').append('Twitter');
@@ -112,8 +120,12 @@ $("body").on("click","#listar_redes #twitter ",function(event){
       '<label for="">'+nombre+'</label>'
     );
     $('#label-form').html(
-      'Tweets'
+      'Tweets Actual '
     );
+    $('#label-form2').html(
+      'Tweetss Anterior'
+    );
+    $("cantidad").val("");
     $("#id_funcionario").val(idSelect);
     $("#eliminar").val(idSelect);
     $("#tipo_red").val("twitter");
@@ -124,6 +136,11 @@ $("body").on("click","#listar_redes #twitter ",function(event){
 
     var tw = JSON.parse(data);
     $.each(tw,function(i,items){
+      var m=1;
+      if(n==1){
+        $('#input_text').append('<input type="number" class="form-control" id="cantidad"  placeholder="Cantidad Compartido" name="tweets" value="'+items.tweets_twitter+'">');
+      }
+
         $('#cuentas').append(
             '<div class="col-md-12">'+
                          '<div class="panel panel-info">'+
@@ -153,34 +170,41 @@ $("body").on("click","#listar_redes #twitter ",function(event){
 
                      '</div>'
             );
-            n++
+            n++;
+
     });
+
   });
 });
 $("#facebook1").click(insertar);
 
 
-});
+
 $("body").on("click","#listar_redes1 #eliminar",function(event){
   id_select=$(this).attr("value");
   eliminar(id_select);
 });
 
 function insertar (){
+  if($("#cantidad").val()!=''){
     $.ajax({
-      url: "http://192.168.197.129/gadch/index.php/admin_gadch/insertar_compartido",
+      url: base_url+"index.php/admin_gadch/insertar_compartido",
       type:"POST",
       data:$("#form-insertar").serialize(),
       success:function(respuesta){
         alert(respuesta);
-        $("#cantidad").attr('value') = '';
+      $('input[type="number"]').val('');
       }
     });
+  }else{
+    alert("llenar el campo cantidad");
+  }
+
 }
 
 function eliminar (id_select){
     $.ajax({
-      url: "http://192.168.197.129/gadch/index.php/admin_gadch/eliminar",
+      url: base_url+"index.php/admin_gadch/eliminar",
       type:"POST",
       data:{id:id_select},
       success:function(respuesta){
@@ -188,4 +212,10 @@ function eliminar (id_select){
         location.reload();
       }
     });
+}
+
+function limpiar(){
+  $("#cantidad").each(function(){
+			$($(this)).val('');
+	});
 }

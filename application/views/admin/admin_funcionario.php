@@ -24,13 +24,7 @@ include'inc/include.php';
                             </div>
                           </div>
                             <div class="row">
-                              <div class="col-md-8" id="listar_redes">
-                                <center>
-
-                                  <input type="submit"  id="holaa" name="" value="prueba">
-
-                               </center>
-
+                              <div class="col-md-8" id="listar_redes" >
                                <table id="tabla" class="display table table-condensed" collspacign="0" width="100%">
                                 <thead>
                                  <tr >
@@ -60,8 +54,11 @@ include'inc/include.php';
                                        <?php 	$facebook_count=$db_default->query("SELECT * FROM facebook where id_funcionario=$id_c ") ?>
                                        <a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-xs" id="facebook" ><i class="fa fa-facebook"></i>acebook <span class="badge"><?php echo $facebook_count->num_rows() ?></span></a></td>
                                      <td>
-                                       <?php 	$twitter_count=$db_default->query("SELECT * FROM facebook where id_funcionario=$id_c ")?>
+                                       <?php 	$twitter_count=$db_default->query("SELECT * FROM twitter where id_funcionario=$id_c ");
+                                       if($twitter_count->num_rows()>0){
+                                       ?>
                                        <a href="<?php echo $row['id_c'];?>" class="btn btn-block btn-info btn-xs" id="twitter" ><i class="fa fa-twitter"></i> Twitter <span class="badge"><?php echo  $twitter_count->num_rows() ?></span></a></td>
+                                     <?php } ?>
                                    </tr>
                                    <?php } ?>
                                 </tbody>
@@ -78,11 +75,19 @@ include'inc/include.php';
                                         <div class="cuentas" id="cuentas">
                                         </div>
                                           <form class="form-horizontal"  id="form-insertar">
+
+                                            <div class="form-group">
+                                              <label for="inputEmail3" id="label-form2" class="col-sm-3 control-label"></label>
+                                              <div class="col-sm-9" id="input_text">
+
+
+                                              </div>
+                                            </div>
                                             <div class="form-group">
                                               <label for="inputEmail3" id="label-form" class="col-sm-3 control-label"></label>
-                                              <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="cantidad" name="cantidad"  placeholder="Cantidad Compartido" value="">
-                                                <input type="hidden" class="form-control" id="id_funcionario" name="id_funcionario"   value="">
+                                              <div class="col-sm-9" id="">
+                                                <input type="number" class="form-control" id="cantidad" name="cantidad"  placeholder="Cantidad Compartido" value="" required>
+                                                <input type="hidden" class="form-control" id="id_funcionario" name="id_funcionario"   value="" >
                                                 <input type="hidden" class="form-control" id="tipo_red" name="tipo_red"   value="">
                                               </div>
                                             </div>
