@@ -54,7 +54,34 @@
 		public function twitter_mostrar($id_twitter){
 			$db_default= $this->load->database('funcionarios', TRUE);
 			$query=$db_default->query("SELECT * FROM twitter where id_funcionario=$id_twitter");
-			
+
 			return $query->result();
 		}
+		public function insertar_compartido($parametro){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$query=$db_default->insert('control_compartidos',$parametro);
+			if($db_default->affected_rows()>0) return true;
+			else return false;
+		}
+
+		public function modificar_redes($id){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$db_default->query("UPDATE trabajadores SET redesSociales='0' WHERE id_c=$id");
+			//echo "UPDATE trabajadores SET redesSociales='0' WHERE id_c=$id";
+			if($db_default->affected_rows()>0) return true;
+			else return false;
+		}
+
+		public function elminira_redes_fb($id){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$db_default->WHERE('id_funcionario',$id);
+			$db_default->delete('facebook');
+		}
+
+		public function elminira_redes_tw($id){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$db_default->WHERE('id_funcionario',$id);
+			$db_default->delete('twitter');
+		}
+
   }

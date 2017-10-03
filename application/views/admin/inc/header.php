@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/material-fullpalette.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/bootstrap-select.min.css">
-        
+
 
 
 
@@ -27,11 +27,12 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon.ico">
     <style media="screen">
-      #facebook{
+      #facebook, .btn .btn-block  .btn-xs{
         background-color: #3c8dbc;
         color: #ffffff;
       }
-      .facebook{
-        background-color: #3c8dbc;
+      .badge{
+        background-color: #ffffff;
+          color: #3c8dbc;
       }
     </style>

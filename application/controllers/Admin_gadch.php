@@ -57,7 +57,7 @@ class Admin_gadch extends CI_Controller {
       $this->load->view('admin/admin_funcionario', $mostrarjef);
     }else $this->load->view('vlogin');
   }
-	function cargo_p(){
+	public function cargo_p(){
 
 		$cargo = $this->input->post('cargo');
 		$contrato = $this->input->post('contrato');
@@ -78,5 +78,41 @@ class Admin_gadch extends CI_Controller {
  			$jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
  			echo json_encode($jef);
 	 }
+
+	 public function insertar_compartido(){
+		 $id_i=$this->session->userdata('s_id_admin');
+
+
+		// if($id_i!=null ){
+			 if($this->input->post()){
+				 	$parametro['cantidad']=$this->input->post('cantidad');
+			 		$parametro['fecha']=date('Y:m:d H:m:s');
+					$parametro['id_funcionario']=$this->input->post('id_funcionario');
+			 		$parametro['id_usuario']=$id_i;
+				 if($this->input->post('tipo_red')=='facebook'){
+					 if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
+					 else echo "Error al Insertar";
+				 }else{
+					   echo "En Proceso";
+				 }
+
+			}else{
+				  echo "En Proceso sin post";
+			}
+
+		// }else $this->load->view('vlogin');
+
+	 }
+
+	 public function eliminar(){
+		 $id=$this->input->post('id');
+		 $this->madmin_gadch->elminira_redes_fb($id);
+
+		 $this->madmin_gadch->elminira_redes_tw($id);
+		 if($this->madmin_gadch->modificar_redes($id)==true) echo "Modificado con con Exito";
+		 else echo "Error al Modificar";
+	 }
+
+
 
 }

@@ -229,9 +229,9 @@
 
                   <?php
                   if($redes==0){
-                    include'gadch_registrar_fb.php';
+                    include'tiempo_agotado.php';
                   } else if($redes==1){
-                    include'gadch_registrar_tw.php';
+                    include'tiempo_agotado.php';
                   }else {
                     include'redesSociales.php';
                   }

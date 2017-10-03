@@ -27,6 +27,7 @@ function(data){
     'filter':true,
   });
 });*/
+$( document ).ready(function() {
 $("body").on("click","#listar_redes  #facebook",function(event){
   var n=1;
   $('#cuentas',).empty();
@@ -46,6 +47,18 @@ $("body").on("click","#listar_redes  #facebook",function(event){
     var fb = JSON.parse(data);
     $('#cuentas').html(
       '<label for="">'+nombre+'</label>'
+    );
+    $("#id_funcionario").val(idSelect);
+    $("#eliminar").val(idSelect);
+    $("#tipo_red").val("facebook");
+    $("#panel").removeClass();
+    $("#panel").addClass(" box box-primary box-solid");
+    $("#facebook1").removeClass();
+    $("#facebook1").addClass(" btn btn-block  btn-xs ");
+
+
+    $('#label-form').html(
+      'Compartido'
     );
     $.each(fb,function(i,items){
         $('#cuentas').append(
@@ -71,23 +84,10 @@ $("body").on("click","#listar_redes  #facebook",function(event){
                           ' </div>'+
                       ' </a>'+
                   ' </div> <br>'+
-                '  <form class="form-horizontal">'+
-                  '  <div class="form-group">'+
-                      '<label for="inputEmail3" class="col-sm-3 control-label">Compartido</label>'+
-                      '<div class="col-sm-9">'+
-                        '<input type="number" class="form-control"  placeholder="Cantidad Compartido" value="'+idSelect+'">'+
-                      '</div>'+
-                    '</div>'+
-                    '<div class="form-group">'+
-                    ' <div class="col-sm-offset-3 col-sm-9">'+
-                      '<input type="submit" class="btn btn-block btn-xs" name="" id="facebook" value="Registrar">'+
-                      '<input type="submit"  class="btn btn-block btn-danger btn-xs" name="" value="Eliminar">'+
-                    '  </div>'+
-                    '</div>'+
-                  '  </form>'+
+
                '</div>'
-    );
-    n++;
+        );
+        n++;
     });
   });
 });
@@ -111,11 +111,20 @@ $("body").on("click","#listar_redes #twitter ",function(event){
     $('#cuentas').html(
       '<label for="">'+nombre+'</label>'
     );
+    $('#label-form').html(
+      'Tweets'
+    );
+    $("#id_funcionario").val(idSelect);
+    $("#eliminar").val(idSelect);
+    $("#tipo_red").val("twitter");
+    $("#panel").removeClass();
+    $("#panel").addClass(" box box-info box-solid");
+    $("#facebook1").addClass("btn btn-block btn-info btn-xs");
+
+
     var tw = JSON.parse(data);
     $.each(tw,function(i,items){
         $('#cuentas').append(
-
-
             '<div class="col-md-12">'+
                          '<div class="panel panel-info">'+
                              '<div class="panel-heading">'+
@@ -141,23 +150,42 @@ $("body").on("click","#listar_redes #twitter ",function(event){
                                 ' </div>'+
                             ' </a>'+
                         ' </div>'+
-                        '  <form class="form-horizontal">'+
-                          '  <div class="form-group">'+
-                              '<label for="inputEmail3" class="col-sm-3 control-label">Tweets</label>'+
-                              '<div class="col-sm-9">'+
-                                '<input type="number" class="form-control"  placeholder="Cantidad Compartido" value="'+idSelect+'">'+
-                              '</div>'+
-                            '</div>'+
-                            '<div class="form-group">'+
-                            ' <div class="col-sm-offset-3 col-sm-9">'+
-                              '<input type="submit" class="btn btn-block btn-info btn-xs" name=""  value="Registrar">'+
-                              '<input type="submit"  class="btn btn-block btn-danger btn-xs" name="" value="Eliminar">'+
-                            '  </div>'+
-                            '</div>'+
-                          '  </form>'+
+
                      '</div>'
             );
             n++
     });
   });
 });
+$("#facebook1").click(insertar);
+
+
+});
+$("body").on("click","#listar_redes1 #eliminar",function(event){
+  id_select=$(this).attr("value");
+  eliminar(id_select);
+});
+
+function insertar (){
+    $.ajax({
+      url: "http://192.168.197.129/gadch/index.php/admin_gadch/insertar_compartido",
+      type:"POST",
+      data:$("#form-insertar").serialize(),
+      success:function(respuesta){
+        alert(respuesta);
+        $("#cantidad").attr('value') = '';
+      }
+    });
+}
+
+function eliminar (id_select){
+    $.ajax({
+      url: "http://192.168.197.129/gadch/index.php/admin_gadch/eliminar",
+      type:"POST",
+      data:{id:id_select},
+      success:function(respuesta){
+        alert(respuesta);
+        location.reload();
+      }
+    });
+}

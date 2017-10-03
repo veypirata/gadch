@@ -83,7 +83,6 @@ class User extends CI_Controller {
 		$id_i=$this->session->userdata('s_id_g');
 		if($id_i!=null){
 			if($this->input->post()){
-
 				$tw['cuenta_twitter']=$this->input->post('cuentaTw');
 				$tw['tweets_twitter']=$this->input->post('tweetsTw');
 				$tw['siguiendo_twitter']=$this->input->post('siguiendoTw');
