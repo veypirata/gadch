@@ -18,7 +18,7 @@ class Admin_gadch extends CI_Controller {
     $cargo=$this->session->userdata('s_cargo');
     if($id_i!=null ){
       $secretaria = $this->input->post('secretaria');
-      $secre = $this->madmin_gadch->secretaria($secretaria);
+      $secre = $this->madmin_gadch->secretaria($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_funcionario', $mostrarsecre);
     }else $this->load->view('vlogin');
@@ -57,62 +57,90 @@ class Admin_gadch extends CI_Controller {
       $this->load->view('admin/admin_funcionario', $mostrarjef);
     }else $this->load->view('vlogin');
   }
-	public function cargo_p(){
-
-		$cargo = $this->input->post('cargo');
-		$contrato = $this->input->post('contrato');
-			$jef = $this->madmin_gadch->cargo_pru();
+  
+  public function cargo_p(){
+      $cargo = $this->input->post('cargo');
+	$contrato = $this->input->post('contrato');
+	$jef = $this->madmin_gadch->cargo_pru();
 			//$mostrarjef= array('mostrar'=>$jef);
 			//$this->load->view('admin/admin_funcionario', $mostrarjef);
 			//echo $jef->num_rows();
-			echo json_encode($jef);
+	echo json_encode($jef);
+  }
+  public function facebook_mostrar(){
+         $id_facebook = $this->input->post('id_usuario');
+                 $jef = $this->madmin_gadch->facebook_mostrar($id_facebook);
+                 echo json_encode($jef);
+  }
+  public function twitter_mostrar(){
+         $id_twitter = $this->input->post('id_usuariot');
+                 $jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
+                 echo json_encode($jef);
+  }
 
-	}
-	 public function facebook_mostrar(){
-		$id_facebook = $this->input->post('id_usuario');
- 			$jef = $this->madmin_gadch->facebook_mostrar($id_facebook);
- 			echo json_encode($jef);
-	 }
-	 public function twitter_mostrar(){
-		$id_twitter = $this->input->post('id_usuariot');
- 			$jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
- 			echo json_encode($jef);
-	 }
-
-	 public function insertar_compartido(){
-		 $id_i=$this->session->userdata('s_id_admin');
-
-
-		// if($id_i!=null ){
-			 if($this->input->post()){
-				 	$parametro['cantidad']=$this->input->post('cantidad');
-			 		$parametro['fecha']=date('Y:m:d H:m:s');
-					$parametro['id_funcionario']=$this->input->post('id_funcionario');
-			 		$parametro['id_usuario']=$id_i;
-				 if($this->input->post('tipo_red')=='facebook'){
-					 if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
-					 else echo "Error al Insertar";
-				 }else{
-					   echo "En Proceso";
-				 }
-
-			}else{
-				  echo "En Proceso sin post";
-			}
-
-		// }else $this->load->view('vlogin');
-
-	 }
-
-	 public function eliminar(){
-		 $id=$this->input->post('id');
-		 $this->madmin_gadch->elminira_redes_fb($id);
-
-		 $this->madmin_gadch->elminira_redes_tw($id);
-		 if($this->madmin_gadch->modificar_redes($id)==true) echo "Modificado con con Exito";
-		 else echo "Error al Modificar";
-	 }
+  public function insertar_compartido(){
+          $id_i=$this->session->userdata('s_id_admin');
 
 
+         // if($id_i!=null ){
+                  if($this->input->post()){
+                                 $parametro['cantidad']=$this->input->post('cantidad');
+                                 $parametro['fecha']=date('Y:m:d H:m:s');
+                                 $parametro['id_funcionario']=$this->input->post('id_funcionario');
+                                 $parametro['id_usuario']=$id_i;
+                          if($this->input->post('tipo_red')=='facebook'){
+                                  if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
+                                  else echo "Error al Insertar";
+                          }else{
+                                    echo "En Proceso";
+                          }
 
+                 }else{
+                           echo "En Proceso sin post";
+                 }
+
+         // }else $this->load->view('vlogin');
+
+  }
+
+  public function eliminar(){
+          $id=$this->input->post('id');
+          $this->madmin_gadch->elminira_redes_fb($id);
+
+          $this->madmin_gadch->elminira_redes_tw($id);
+          if($this->madmin_gadch->modificar_redes($id)==true) echo "Modificado con con Exito";
+          else echo "Error al Modificar";
+  }
+
+  public function mostrarreporte(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $jef = $this->madmin_gadch->mostrarreporte();
+      $mostrarjef= array('mostrar'=>$jef);
+      $this->load->view('admin/admin_reportefacebook', $mostrarjef);
+    }else $this->load->view('vlogin');  
+      
+  }
+  public function m_secretaria_facebook(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $secretaria = $this->input->post('secretaria');
+      $secre = $this->madmin_gadch->m_secretaria_f($secretaria);/*envia datos al modelo para la consulta*/
+      $mostrarsecre= array('mostrar'=>$secre);
+      $this->load->view('admin/admin_reportefacebook', $mostrarsecre);
+    }else $this->load->view('vlogin');
+  }
+  
+  public function m_direccion_facebook(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $direccion = $this->input->post('direccion');
+      $direc = $this->madmin_gadch->m_direccion_f($direccion);/*envia datos al modelo para la consulta*/
+      $mostrardireccion= array('mostrar'=>$direc);
+      $this->load->view('admin/admin_reportefacebook', $mostrardireccion);
+    }else $this->load->view('vlogin');
+  }
 }

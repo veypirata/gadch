@@ -19,18 +19,14 @@ include'inc/include.php';
                             <div class="col-md-12">
                               <center>
                                 <h2>Listar Trabajadores</h2><hr>
-
                               </center>
                             </div>
                           </div>
-                            <div class="row">
+                     <div class="row">
                               <div class="col-md-8" id="listar_redes">
                                 <center>
-
                                   <input type="submit"  id="holaa" name="" value="prueba">
-
                                </center>
-
                                <table id="tabla" class="display table table-condensed" collspacign="0" width="100%">
                                 <thead>
                                  <tr >
