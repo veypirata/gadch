@@ -8,7 +8,6 @@
         <strong>Copyright &copy; 2017 <a href="#">#OnlySoft</a>. </strong>
       </footer>
     <!-- jquery-3.1.1.min.js -->
-    <script src="<?php echo base_url() ?>assets/admin/js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/js/material.min.js"></script>
 

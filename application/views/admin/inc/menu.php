@@ -4,11 +4,11 @@
       <header class="main-header">
         <a href="" class="logo">
           <span class="logo-mini"><b>AD</b>C</span>
-          <span class="logo-lg"><b>ADControl <sup>V - 0.2 </sup></b></span>
+          <span class="logo-lg"><b>ADControl <sup>V - 0.1 </sup></b></span>
         </a>
         <nav class="navbar   navbar-static-top" role="navigation">
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only"></span> CONTROL DE INGRESO | GADCH
+            <span class="sr-only"></span> CONTROL REDES SOCIALES | GADCH
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu">
                   <li class="user-header">
                     <p>
-                      Control de la <small><?php echo $this->session->userdata('s_dependencia');?></small>
+
                       <small>GOBIERNO AUTONOMO DEPARTAMENTAL DE CHUQUISACA</small>
                     </p>
                   </li>
@@ -43,7 +43,7 @@
           <ul class="sidebar-menu">
             <li class="header"></li>
             <li>
-              <a href="<?php echo base_url() ?>index.php/admin_control">
+              <a href="<?php echo base_url() ?>index.php/admin_gadch">
                 <i class="fa fa-fw fa-dashboard"></i> <span>Escritorio</span>
               </a>
             </li>
@@ -61,7 +61,7 @@
 
               </ul>
             </li>
-<!--Nuevo menu para mostrar sobre los datos de facebook----------------------------------------------->            
+<!--Nuevo menu para mostrar sobre los datos de facebook----------------------------------------------->
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-folder"></i>
@@ -71,10 +71,10 @@
             <ul class="treeview-menu">
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebooks" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Secretaria</a></li><!--compartirfacebook ------hace referencia ms abajo -->
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebookd" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Dirección</a></li>
-                <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>         
+                <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>
             </ul>
-        </li>       
-<!--Fin menu mostrar datos de facebook---------------------------------------------------------------->            
+        </li>
+<!--Fin menu mostrar datos de facebook---------------------------------------------------------------->
             <?php $cargo=$this->session->userdata('s_cargo');
               if($cargo!=0){
                ?>
@@ -97,7 +97,7 @@
                 <small class="label pull-right bg-yellow">!</small>
               </a>
             </li>
-      
+
             <li>
               <a href="<?php echo base_url();?>index.php/admin_control/salir">
                 <i class="glyphicon glyphicon-off"></i> <span>Cerrar Session</span>
@@ -219,7 +219,7 @@
             </div>
         </div>
     </div>
-<!--Nuevo MODAL FADE para mostrar sobre los datos de facebook-----------------------------------------------> 
+<!--Nuevo MODAL FADE para mostrar sobre los datos de facebook----------------------------------------------->
  <div class="modal fade" id="compartirfacebooks" >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -245,7 +245,7 @@
             </center>
             </div>
           </div>
-    </div>  
+    </div>
 <div class="modal fade" id="compartirfacebookd" >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -299,7 +299,7 @@
             </div>
           </div>
     </div>
-<!--Fin MODAL FADE para mostrar sobre los datos de facebook---------------------------------------------------> 
+<!--Fin MODAL FADE para mostrar sobre los datos de facebook--------------------------------------------------->
 
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->

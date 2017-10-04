@@ -57,6 +57,13 @@
 
             return $query->result();
     }
+		public function compartido_mostrar($id_f){
+            $db_default= $this->load->database('funcionarios', TRUE);
+						$fecha=date('m');
+						$query=$db_default->query("SELECT tipo_red, sum(cantidad) AS total FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' GROUP BY tipo_red");
+
+            return $query->result();
+    }
     public function insertar_compartido($parametro){
             $db_default= $this->load->database('funcionarios', TRUE);
             $query=$db_default->insert('control_compartidos',$parametro);
@@ -105,6 +112,12 @@
 		public function modificar_facebook($fechaA,$id_fb){
 			$db_default= $this->load->database('funcionarios', TRUE);
 			$db_default->query("UPDATE `facebook` SET  fecha_registro_actualizado='$fechaA' WHERE id_facebook=$id_fb");
+		}
+
+		public function buscador(){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$query=$db_default->query("SELECT * FROM trabajadores");
+			return $query->result();
 		}
 
   }

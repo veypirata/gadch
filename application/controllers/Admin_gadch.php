@@ -86,9 +86,14 @@ class Admin_gadch extends CI_Controller {
   }
   public function twitter_mostrar(){
          $id_twitter = $this->input->post('id_usuariot');
-                 $jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
-                 echo json_encode($jef);
+         $jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
+         echo json_encode($jef);
   }
+	public function compartido_mostrar(){
+				 $id_f = $this->input->post('id_f');
+				 $jef = $this->madmin_gadch->compartido_mostrar($id_f);
+				 echo json_encode($jef);
+	}
 
 
   public function insertar_compartido(){
@@ -178,4 +183,10 @@ class Admin_gadch extends CI_Controller {
 			header ("Location: $url");
 		}
   }
+
+	public function buscador(){
+		//$id_twitter = $this->input->post('id_usuariot');
+		$jef = $this->madmin_gadch->buscador();
+		echo json_encode($jef);
+	}
 }
