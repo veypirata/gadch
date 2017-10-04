@@ -21,7 +21,10 @@ class Admin_gadch extends CI_Controller {
       $secre = $this->madmin_gadch->secretaria($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_funcionario', $mostrarsecre);
-    }else $this->load->view('gadch_login');
+    }else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function direccion(){
@@ -32,7 +35,10 @@ class Admin_gadch extends CI_Controller {
       $dir = $this->madmin_gadch->direccion($direccion);
       $mostrardir= array('mostrar'=>$dir);
       $this->load->view('admin/admin_funcionario', $mostrardir);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function jefatura(){
@@ -43,7 +49,10 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->jefatura($jefatura);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function cargo(){
@@ -55,9 +64,12 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->cargo($cargo,$contrato);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
-  
+
   public function cargo_p(){
       $cargo = $this->input->post('cargo');
 	$contrato = $this->input->post('contrato');
@@ -78,10 +90,10 @@ class Admin_gadch extends CI_Controller {
                  echo json_encode($jef);
   }
 
-<<<<<<< HEAD
+
   public function insertar_compartido(){
           $id_i=$this->session->userdata('s_id_admin');
-=======
+
 		// if($id_i!=null ){
 			 if($this->input->post()){
 				 	$cantidad=$this->input->post('cantidad');
@@ -109,25 +121,9 @@ class Admin_gadch extends CI_Controller {
  					 else echo "Error al Insertar";
 
 				 }
->>>>>>> 210d5e1fa263767d8aae6952e458a447e8e2a0de
-
-
-         // if($id_i!=null ){
-                  if($this->input->post()){
-                                 $parametro['cantidad']=$this->input->post('cantidad');
-                                 $parametro['fecha']=date('Y:m:d H:m:s');
-                                 $parametro['id_funcionario']=$this->input->post('id_funcionario');
-                                 $parametro['id_usuario']=$id_i;
-                          if($this->input->post('tipo_red')=='facebook'){
-                                  if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
-                                  else echo "Error al Insertar";
-                          }else{
-                                    echo "En Proceso";
-                          }
-
-                 }else{
-                           echo "En Proceso sin post";
-                 }
+			 }else{
+	     echo "En Proceso sin post";
+	   }
 
          // }else $this->load->view('vlogin');
 
@@ -149,8 +145,11 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->mostrarreporte();
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_reportefacebook', $mostrarjef);
-    }else $this->load->view('vlogin');  
-      
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
+
   }
   public function m_secretaria_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
@@ -160,9 +159,12 @@ class Admin_gadch extends CI_Controller {
       $secre = $this->madmin_gadch->m_secretaria_f($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_reportefacebook', $mostrarsecre);
-    }else $this->load->view('vlogin');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
-  
+
   public function m_direccion_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
     $cargo=$this->session->userdata('s_cargo');
@@ -171,6 +173,9 @@ class Admin_gadch extends CI_Controller {
       $direc = $this->madmin_gadch->m_direccion_f($direccion);/*envia datos al modelo para la consulta*/
       $mostrardireccion= array('mostrar'=>$direc);
       $this->load->view('admin/admin_reportefacebook', $mostrardireccion);
-    }else $this->load->view('vlogin');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 }

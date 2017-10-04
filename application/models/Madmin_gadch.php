@@ -89,8 +89,8 @@
                 ON tr.id_c = cc.id_funcionario
          WHERE cc.cantidad > 1");
         return $query;
-    }  
-    
+    }
+
     public function m_secretaria_f($secretaria){
         $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
                 ON tr.id_c = cc.id_funcionario WHERE tr.secretaria ='$secretaria'");
