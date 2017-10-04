@@ -75,8 +75,17 @@ include'inc/include.php';
                                         <div class="cuentas" id="cuentas">
                                         </div>
                                           <form class="form-horizontal"  id="form-insertar">
+                                            <div class="form-group" id="select_div">
+                                              <label for="inputEmail3" id="label-form_id" class="col-sm-3 control-label"></label>
+                                              <div class="col-sm-9" id="">
+                                                <select class="form-control" name="cuenta" id="select_form">
+
+                                                </select>
+                                              </div>
+                                            </div>
 
                                             <div class="form-group">
+
                                               <label for="inputEmail3" id="label-form2" class="col-sm-3 control-label"></label>
                                               <div class="col-sm-9" id="input_text">
 
@@ -86,7 +95,7 @@ include'inc/include.php';
                                             <div class="form-group">
                                               <label for="inputEmail3" id="label-form" class="col-sm-3 control-label"></label>
                                               <div class="col-sm-9" id="">
-                                                <input type="number" class="form-control" id="cantidad" name="cantidad"  placeholder="Cantidad Compartido" value="" required>
+                                                <input type="number" class="form-control" id="cantidad1" name="cantidad"  placeholder="Cantidad Compartido" value="" required>
                                                 <input type="hidden" class="form-control" id="id_funcionario" name="id_funcionario"   value="" >
                                                 <input type="hidden" class="form-control" id="tipo_red" name="tipo_red"   value="">
                                               </div>

@@ -10,7 +10,7 @@ class Admin_gadch extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('vcliente');
+		$this->load->view('admin/admin_index');
 	}
 
   public function secretaria(){
@@ -21,7 +21,7 @@ class Admin_gadch extends CI_Controller {
       $secre = $this->madmin_gadch->secretaria($secretaria);
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_funcionario', $mostrarsecre);
-    }else $this->load->view('vlogin');
+    }else $this->load->view('gadch_login');
   }
 
   public function direccion(){
@@ -32,7 +32,7 @@ class Admin_gadch extends CI_Controller {
       $dir = $this->madmin_gadch->direccion($direccion);
       $mostrardir= array('mostrar'=>$dir);
       $this->load->view('admin/admin_funcionario', $mostrardir);
-    }else $this->load->view('vlogin');
+    }else $this->load->view('gadch_login');
   }
 
   public function jefatura(){
@@ -43,7 +43,7 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->jefatura($jefatura);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('vlogin');
+    }else $this->load->view('gadch_login');
   }
 
   public function cargo(){
@@ -55,7 +55,7 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->cargo($cargo,$contrato);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('vlogin');
+    }else $this->load->view('gadch_login');
   }
 	public function cargo_p(){
 
@@ -85,15 +85,30 @@ class Admin_gadch extends CI_Controller {
 
 		// if($id_i!=null ){
 			 if($this->input->post()){
-				 	$parametro['cantidad']=$this->input->post('cantidad');
+				 	$cantidad=$this->input->post('cantidad');
 			 		$parametro['fecha']=date('Y:m:d H:m:s');
 					$parametro['id_funcionario']=$this->input->post('id_funcionario');
 			 		$parametro['id_usuario']=$id_i;
 				 if($this->input->post('tipo_red')=='facebook'){
+					 $parametro['cantidad']=$cantidad;
+					 $parametro['tipo_red']='fb';
+					 $fechaA=date('Y-m-d H:m:s');
+					 $id_fb=$this->input->post('cuenta');
+					 $this->madmin_gadch->modificar_facebook($fechaA,$id_fb);
 					 if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
 					 else echo "Error al Insertar";
 				 }else{
-					   echo "En Proceso";
+					 	$cantA=$this->input->post('cantidad');
+					  $canAnte=$this->input->post('tweets');
+						$parametro['cantidad']=$cantA-$canAnte;
+						$parametro['tipo_red']='tw';
+						$fecheA=date('Y-m-d H:m:s');
+						$id_f=$this->input->post('id_funcionario');
+						$id_tw=$this->input->post('cuenta');
+						$this->madmin_gadch->modificar_twitter($fecheA,$cantA,$id_tw);
+						if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con exito";
+ 					 else echo "Error al Insertar";
+
 				 }
 
 			}else{

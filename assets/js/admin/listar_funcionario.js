@@ -29,10 +29,17 @@ function(data){
 });*/
 $( document ).ready(function() {
   $("#listar_redes1").hide();
+  $("#select_form").find("option[value='']").remove();
+
 });
 $("body").on("click","#listar_redes  #facebook",function(event){
   var n=1;
+
+  $("#select_form option[id='option']").remove();
   $('#label-form2').hide();
+  $('#label-form_id').html(
+    'Cuenta'
+  );
   $("#input_text").hide();
   $("#listar_redes1").show();
   $('#cuentas',).empty();
@@ -60,11 +67,13 @@ $("body").on("click","#listar_redes  #facebook",function(event){
     $("#panel").addClass(" box box-primary box-solid");
     $("#facebook1").removeClass();
     $("#facebook1").addClass(" btn btn-block btn-primary  btn-xs ");
-
     $('#label-form').html(
       'Compartido'
     );
     $.each(fb,function(i,items){
+      $("#select_form").append(
+        '<option value="'+items.id_facebook+'" id="option" >Cuenta'+n+'</option>'
+      );
         $('#cuentas').append(
       '<div class="col-md-12">'+
                    '<div id="facebook">'+
@@ -76,7 +85,7 @@ $("body").on("click","#listar_redes  #facebook",function(event){
                                '<div class="col-xs-9 text-right">'+
                                  ' <div>Amigos De Facebook</div>'+
                                   ' <div class="huge">'+items.amigos_facebook+'</div>'+
-
+                                    ' <div class="huge" id="">Ultima Actualizacion <i class="fa fa-arrow-circle-right"></i>  '+items.fecha_registro_actualizado+'</div>'+
                               ' </div>'+
                           ' </div>'+
                        '</div>'+
@@ -98,12 +107,18 @@ $("body").on("click","#listar_redes  #facebook",function(event){
 
 $("body").on("click","#listar_redes #twitter ",function(event){
   var n=1;
+  $("#select_form option[id='option']").remove();
+  $("#select_div").show();
   $('#input_text').html("");
   $('#label-form2').show();
+
   $("#input_text").show();
   $("#listar_redes1").show();
   $('#cuentas',).empty();
   $('#titulo',).empty();
+  $('#label-form_id').html(
+    'Cuenta'
+  );
   $('#titulo').append('Twitter');
   event.preventDefault();
   idSelect=$(this).attr("href");
@@ -125,6 +140,7 @@ $("body").on("click","#listar_redes #twitter ",function(event){
     $('#label-form2').html(
       'Tweetss Anterior'
     );
+
     $("cantidad").val("");
     $("#id_funcionario").val(idSelect);
     $("#eliminar").val(idSelect);
@@ -138,8 +154,16 @@ $("body").on("click","#listar_redes #twitter ",function(event){
     $.each(tw,function(i,items){
       var m=1;
       if(n==1){
-        $('#input_text').append('<input type="number" class="form-control" id="cantidad"  placeholder="Cantidad Compartido" name="tweets" value="'+items.tweets_twitter+'">');
+        $('#input_text').append(
+
+          '<input type="number" class="form-control" id="cantidad"  placeholder="Cantidad Compartido" name="tweets" value="'+items.tweets_twitter+'">'
+
+        );
       }
+      $("#select_form").append(
+
+        '<option value="'+items.id_twitter+'" id="option" >Cuenta'+n+'</option>'
+      );
 
         $('#cuentas').append(
             '<div class="col-md-12">'+
@@ -155,7 +179,7 @@ $("body").on("click","#listar_redes #twitter ",function(event){
                                         ' <div class="huge">Siguiendo <i class="fa fa-arrow-circle-right"></i>  '+items.siguiendo_twitter+'</div>'+
                                         ' <div class="huge">Seguidores  <i class="fa fa-arrow-circle-right"></i> '+items.seguidores_twitter+'</div>'+
                                         ' <div class="huge">Me Gusta <i class="fa fa-arrow-circle-right"></i>  '+items.me_gusta_twitter+'</div>'+
-
+                                        ' <div class="huge">Ultima Actualizacion <i class="fa fa-arrow-circle-right"></i>  '+items.fecha_registro_actualizado+'</div>'+
                                     ' </div>'+
                                 ' </div>'+
                              '</div>'+
@@ -186,7 +210,7 @@ $("body").on("click","#listar_redes1 #eliminar",function(event){
 });
 
 function insertar (){
-  if($("#cantidad").val()!=''){
+  if($("#cantidad1").val()!=''){
     $.ajax({
       url: base_url+"index.php/admin_gadch/insertar_compartido",
       type:"POST",

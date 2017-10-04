@@ -84,4 +84,13 @@
 			$db_default->delete('twitter');
 		}
 
+		public function modificar_twitter($fechaA,$canAnte,$id_tw){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$db_default->query("UPDATE `twitter` SET tweets_twitter='$canAnte', fecha_registro_actualizado='$fechaA' WHERE id_twitter=$id_tw");
+		}
+		public function modificar_facebook($fechaA,$id_fb){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$db_default->query("UPDATE `facebook` SET  fecha_registro_actualizado='$fechaA' WHERE id_facebook=$id_fb");
+		}
+
   }
