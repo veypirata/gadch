@@ -96,14 +96,7 @@ class Admin_gadch extends CI_Controller {
 	}
 
 
-<<<<<<< HEAD
- public function insertar_compartido(){
-=======
-  public function insertar_compartido(){
->>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
-          $id_i=$this->session->userdata('s_id_admin');
 
-		// if($id_i!=null ){
 			 if($this->input->post()){
 				 	$cantidad=$this->input->post('cantidad');
 			 		$parametro['fecha']=date('Y:m:d H:m:s');
@@ -221,7 +214,7 @@ class Admin_gadch extends CI_Controller {
       $this->load->view('admin/admin_reportefacebook', $mostrarjefatura);
     }else $this->load->view('vlogin');
   }
-  
+
     public function m_cargo_facebook(){
         $id_i=$this->session->userdata('s_id_admin');
         $cargo=$this->session->userdata('s_cargo');
