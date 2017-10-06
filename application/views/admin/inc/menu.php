@@ -71,7 +71,25 @@
             <ul class="treeview-menu">
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebooks" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Secretaria</a></li><!--compartirfacebook ------hace referencia ms abajo -->
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebookd" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Dirección</a></li>
+<<<<<<< HEAD
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookj" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Jefatura</a></li>
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookc" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Por Cargo</a></li>
+                         
+=======
+<<<<<<< HEAD
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookj" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Jefatura</a></li>
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookc" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Por Cargo</a></li>
+                         
+=======
+<<<<<<< HEAD
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookj" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Jefatura</a></li>
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookc" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Por Cargo</a></li>
+                <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>         
+=======
                 <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>
+>>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
             </ul>
         </li>
 <!--Fin menu mostrar datos de facebook---------------------------------------------------------------->
@@ -272,7 +290,8 @@
             </div>
           </div>
     </div>
-    <div class="modal fade" id="secretariareporte" >
+
+<div class="modal fade" id="compartirfacebookj" >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -280,15 +299,14 @@
               <h4 class="modal-title" id="exampleModalLabel">Cantidad de compartidos por fechas</h4>
             </div>
             <center>
-            <form class="form-horizontal" method="POST" action="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte">
+            <form class="form-horizontal" method="POST" action="<?php echo base_url();?>index.php/admin_gadch/m_jefatura_facebook">
             <div class="form-group">
-               <label for="inputPassword3" class="col-sm-4 control-label">SECRETARIA</label>
+               <label for="inputPassword3" class="col-sm-4 control-label">JEFATURA</label>
                <div class="col-sm-5">
-                   <?php include('secretaria.php'); ?>
+                   <?php include('jefatura.php'); ?>
                    <br>
                </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-9">
                     <button type="submit" class="btn btn-default">Mostrar</button>
@@ -299,7 +317,66 @@
             </div>
           </div>
     </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
+
+    <div class="modal fade" id="compartirfacebookc" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="exampleModalLabel">Mostrar Por Cargo</h4>
+                </div>
+                <center>
+                   <form class="form-horizontal" method="POST" action="<?php echo base_url();?>index.php/admin_gadch/m_cargo_facebook">
+                    <?php include('cargoReportes.php'); ?><br>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-9">
+                          <button type="submit" class="btn btn-default">Mostrar</button>
+                        </div>
+                      </div>
+                   </form>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="secretariareporte" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="exampleModalLabel">Cantidad de compartidos por fechas</h4>
+            </div>
+            <center>
+            <form class="form-horizontal" method="POST" action="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte">
+                <div class="form-group">
+                   <label for="inputPassword3" class="col-sm-4 control-label">SECRETARIA</label>
+                   <div class="col-sm-5">
+                       <?php include('secretaria.php'); ?>
+                       <br>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-9">
+                        <button type="submit" class="btn btn-default">Mostrar</button>
+                </div>
+            </div>
+            </form>
+            </center>
+            </div>
+          </div>
+    </div>
+
+<input type="submit" value="" />
+<!--Fin MODAL FADE para mostrar sobre los datos de facebook---------------------------------------------------> 
+=======
 <!--Fin MODAL FADE para mostrar sobre los datos de facebook--------------------------------------------------->
+>>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
 
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->

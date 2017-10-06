@@ -95,11 +95,15 @@ class Admin_gadch extends CI_Controller {
 				 echo json_encode($jef);
 	}
 
+public function insertar_compartido(){
 
-  public function insertar_compartido(){
+<<<<<<< HEAD
+ public function insertar_compartido(){
           $id_i=$this->session->userdata('s_id_admin');
 
 		// if($id_i!=null ){
+=======
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
 			 if($this->input->post()){
 				 	$cantidad=$this->input->post('cantidad');
 			 		$parametro['fecha']=date('Y:m:d H:m:s');
@@ -125,12 +129,17 @@ class Admin_gadch extends CI_Controller {
 						if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con exito";
  					 else echo "Error al Insertar";
 
+<<<<<<< HEAD
 				 }
+}
+=======
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
+
+				 }
+
 			 }else{
 	     echo "En Proceso sin post";
 	   }
-
-         // }else $this->load->view('vlogin');
 
   }
 
@@ -161,6 +170,7 @@ class Admin_gadch extends CI_Controller {
     $cargo=$this->session->userdata('s_cargo');
     if($id_i!=null ){
       $secretaria = $this->input->post('secretaria');
+//      $secre = $this->madmin_gadch->m_secretaria_f($secretaria)
       $secre = $this->madmin_gadch->m_secretaria_f($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_reportefacebook', $mostrarsecre);
@@ -183,10 +193,40 @@ class Admin_gadch extends CI_Controller {
 			header ("Location: $url");
 		}
   }
+    public function m_jefatura_facebook(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $jefatura = $this->input->post('jefatura');
+      $direc = $this->madmin_gadch->m_jefatura_f($jefatura);/*envia datos al modelo para la consulta*/
+      $mostrarjefatura= array('mostrar'=>$direc);
+      $this->load->view('admin/admin_reportefacebook', $mostrarjefatura);
+    }else $this->load->view('vlogin');
+  }
+<<<<<<< HEAD
+    public function m_jefatura_facebook(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $jefatura = $this->input->post('jefatura');
+      $direc = $this->madmin_gadch->m_jefatura_f($jefatura);/*envia datos al modelo para la consulta*/
+      $mostrarjefatura= array('mostrar'=>$direc);
+      $this->load->view('admin/admin_reportefacebook', $mostrarjefatura);
+    }else $this->load->view('vlogin');
+  }
+  
+=======
 
-	public function buscador(){
-		//$id_twitter = $this->input->post('id_usuariot');
-		$jef = $this->madmin_gadch->buscador();
-		echo json_encode($jef);
-	}
-}
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
+    public function m_cargo_facebook(){
+        $id_i=$this->session->userdata('s_id_admin');
+        $cargo=$this->session->userdata('s_cargo');
+        if($id_i!=null ){
+          $cargo = $this->input->post('cargo');
+          $contrato = $this->input->post('contrato');
+          $direc = $this->madmin_gadch->m_cargo_f($cargo,$contrato);/*envia datos al modelo para la consulta*/
+          $mostrarcargo= array('mostrar'=>$direc);
+          $this->load->view('admin/admin_reportefacebook', $mostrarcargo);
+        }else $this->load->view('vlogin');
+    }
+ }

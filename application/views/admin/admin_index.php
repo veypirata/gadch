@@ -205,14 +205,20 @@ $ipvisitante='192.168.197.8';//$porciones[2];
                     var tw_con=String(item.tw);
                     var su_con=0;
                     var nul = 'null';
+<<<<<<< HEAD
                     alert(fb_con+" "+tw_con);
+=======
+>>>>>>> 76c59f35454d2ab4de7311655e659c5ea244a1a6
                       if(tw_con==nul  && fb_con==nul){
                         su_con=0;
                       }else{
 
                        if(tw_con!=nul && fb_con!=nul){
                          su_con=parseInt(fb_con)+parseInt(tw_con);
+<<<<<<< HEAD
                          alert(fb_con+" "+tw_con);
+=======
+>>>>>>> 76c59f35454d2ab4de7311655e659c5ea244a1a6
                        }else{
                          if(tw_con!=nul ){
                            su_con=tw_con;
@@ -326,7 +332,11 @@ $ipvisitante='192.168.197.8';//$porciones[2];
                   if(afb_con=='null')
                   { var span_afb='<span class="btn btn-block btn-xs btn-danger">0</span>' }
                   $('#amigos_facebook').append(
+<<<<<<< HEAD
                     '<label>Amigos de Facebook</label>'+
+=======
+                    '<label>Facebook de Facebook</label>'+
+>>>>>>> 76c59f35454d2ab4de7311655e659c5ea244a1a6
                     span_afb
                   );
                 });

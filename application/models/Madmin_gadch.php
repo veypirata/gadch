@@ -10,19 +10,19 @@
 			parent::__construct();
 		}
         public function cargo($cargo='',$contrato=''){
-			if($cargo==1&&$contrato==1){
-				$query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
-			}else{
-				if($cargo!=1&&$contrato==1){
-					$query=$this->db->query("SELECT * FROM trabajadores where cargo='$cargo'  and redesSociales=2");
-				}else if($cargo==1&&$contrato!=1){
-					$query=$this->db->query("SELECT * FROM trabajadores where contrato='$contrato' and redesSociales=2 ");
-				}else{
-					$query=$this->db->query("SELECT * FROM trabajadores where cargo='$cargo' and contrato='$contrato' and redesSociales=2");
-				}
+            if($cargo==1&&$contrato==1){
+                $query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
+            }else{
+                if($cargo!=1&&$contrato==1){
+                        $query=$this->db->query("SELECT * FROM trabajadores where cargo='$cargo'  and redesSociales=2");
+                }else if($cargo==1&&$contrato!=1){
+                        $query=$this->db->query("SELECT * FROM trabajadores where contrato='$contrato' and redesSociales=2 ");
+                }else{
+                        $query=$this->db->query("SELECT * FROM trabajadores where cargo='$cargo' and contrato='$contrato' and redesSociales=2");
+                }
 			}
-			return $query;
-		}
+	    return $query;
+	}
 
     public function secretaria($secretaria){
         $query=$this->db->query("SELECT * FROM trabajadores WHERE secretaria='$secretaria' and redesSociales=2");
@@ -99,10 +99,69 @@
     }
 
     public function m_secretaria_f($secretaria){
-        $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
-                ON tr.id_c = cc.id_funcionario WHERE tr.secretaria ='$secretaria'");
+<<<<<<< HEAD
+        $query=$this->db->query("SELECT * FROM trabajadores WHERE secretaria ='$secretaria' and redesSociales=2");
         return $query;
     }
+    
+     public function m_direccion_f($direccion){
+        $query=$this->db->query("SELECT * FROM trabajadores WHERE direccion ='$direccion' and redesSociales=2");
+        return $query;
+    }
+     public function m_jefatura_f($jefatura){
+        $query=$this->db->query("SELECT * FROM trabajadores WHERE jefatura ='$jefatura' and redesSociales=2");
+        return $query;
+    }
+     
+    public function m_cargo_f($cargo='',$contrato=''){
+        if($cargo==1&&$contrato==1){
+            $query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
+        }else{
+            if($cargo!=1&&$contrato==1){
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE cargo ='$cargo' and redesSociales=2");
+            }else if($cargo==1&&$contrato!=1){
+                    $query=$this->db->query("SELECT * FROM trabajadores where contrato='$contrato' and redesSociales=2 ");
+            }else{
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE tr.cargo ='$cargo' and contrato='$contrato' and redesSociales=2");
+            }
+            }
+        return $query;
+    }
+    
+    
+=======
+        $query=$this->db->query("SELECT * FROM trabajadores tr WHERE tr.secretaria ='$secretaria' and  redesSociales=2");
+        return $query;
+    }
+
+     public function m_direccion_f($direccion){
+        $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
+                ON tr.id_c = cc.id_funcionario WHERE tr.direccion ='$direccion'");
+        return $query;
+    }
+     public function m_jefatura_f($jefatura){
+        $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
+                ON tr.id_c = cc.id_funcionario WHERE tr.jefatura ='$jefatura'");
+        return $query;
+    }
+
+    public function m_cargo_f($cargo='',$contrato=''){
+        if($cargo==1&&$contrato==1){
+            $query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
+        }else{
+            if($cargo!=1&&$contrato==1){
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE cargo ='$cargo' and redesSociales=2");
+            }else if($cargo==1&&$contrato!=1){
+                    $query=$this->db->query("SELECT * FROM trabajadores where contrato='$contrato' and redesSociales=2 ");
+            }else{
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE tr.cargo ='$cargo' and contrato='$contrato' and redesSociales=2");
+            }
+            }
+        return $query;
+    }
+
+
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
 //    fin Mostrar tabla de facebook de registros de cantidad de compartidos//-------------------
 
 		public function modificar_twitter($fechaA,$canAnte,$id_tw){
