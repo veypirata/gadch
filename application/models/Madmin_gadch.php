@@ -102,7 +102,7 @@
         $query=$this->db->query("SELECT * FROM trabajadores tr WHERE tr.secretaria ='$secretaria' and  redesSociales=2");
         return $query;
     }
-    
+
      public function m_direccion_f($direccion){
         $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
                 ON tr.id_c = cc.id_funcionario WHERE tr.direccion ='$direccion'");
@@ -113,7 +113,7 @@
                 ON tr.id_c = cc.id_funcionario WHERE tr.jefatura ='$jefatura'");
         return $query;
     }
-     
+
     public function m_cargo_f($cargo='',$contrato=''){
         if($cargo==1&&$contrato==1){
             $query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
@@ -128,8 +128,8 @@
             }
         return $query;
     }
-    
-    
+
+
 //    fin Mostrar tabla de facebook de registros de cantidad de compartidos//-------------------
 
 		public function modificar_twitter($fechaA,$canAnte,$id_tw){

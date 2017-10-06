@@ -74,10 +74,16 @@
 <<<<<<< HEAD
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebookj" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Jefatura</a></li>
                 <li><a data-toggle="modal" href="#" data-target="#compartirfacebookc" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Por Cargo</a></li>
+                         
+=======
+<<<<<<< HEAD
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookj" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Jefatura</a></li>
+                <li><a data-toggle="modal" href="#" data-target="#compartirfacebookc" ><i class="glyphicon glyphicon-circle-arrow-right"></i>Compartido Por Cargo</a></li>
                 <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>         
 =======
                 <li><a data-toggle="modal" href="<?php echo base_url();?>index.php/admin_gadch/mostrarreporte" data-whatever="@getbootstrap"><i class="glyphicon glyphicon-question-sign"></i>Mostrar Reporte</a></li>
 >>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
             </ul>
         </li>
 <!--Fin menu mostrar datos de facebook---------------------------------------------------------------->
@@ -306,6 +312,9 @@
           </div>
     </div>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
 
     <div class="modal fade" id="compartirfacebookc" >
         <div class="modal-dialog" role="document">

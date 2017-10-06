@@ -74,6 +74,55 @@ $db_default= $this->load->database('funcionarios', TRUE);?>
                                 <TD BGCOLOR="green"><?php echo $x ?></TD>
                             <?php  }?>
                              
+<<<<<<< HEAD
+                            <?php $t=$dato->twitt;
+                                 if($t ==0){?>
+                                <TD BGCOLOR="red"><?php echo $t ?></TD>
+                                <?php  }else if($t >=1&& $t <=24 ){ ?>
+                                <TD BGCOLOR="orange"><?php echo $t ?></TD>        
+                                <?php  }else if($t >=25&&$t <=49 ){ ?>
+                                <TD BGCOLOR="yellow"><?php echo $t ?></TD>
+                                <?php  }else if($t >=50&&$t <=74 ){ ?>
+                                <TD BGCOLOR="#90ecf5"><?php echo $t ?></TD>
+                                <?php  }else if($t >=75&&$t <=99 ){ ?>
+                                <TD BGCOLOR="#a7f597"><?php echo $$t ?></TD>
+                                <?php  }else if($t >=100){ ?>
+                                <TD BGCOLOR="green"><?php echo $t ?></TD>
+                            <?php  }?> 
+                                 
+                            <?php $to=$dato->sumaredes;
+                                 if($to ==0){?>
+                                <TD BGCOLOR="red"><?php echo $to ?></TD>
+                                <?php  }else if($to >=1&& $to <=24 ){ ?>
+                                <TD BGCOLOR="orange"><?php echo $to ?></TD>        
+                                <?php  }else if($to >=25&&$to <=49 ){ ?>
+                                <TD BGCOLOR="yellow"><?php echo $to ?></TD>
+                                <?php  }else if($to >=50&&$to <=74 ){ ?>
+                                <TD BGCOLOR="#90ecf5"><?php echo $to ?></TD>
+                                <?php  }else if($to >=75&&$to <=99 ){ ?>
+                                <TD BGCOLOR="#a7f597"><?php echo $to ?></TD>
+                                <?php  }else if($to >=100){ ?>
+                                <TD BGCOLOR="green"><?php echo $to ?></TD>
+                            <?php  }?>     
+                            <?php if (empty($facamigos->amigosfac)) {?>
+                             <td>0</td>
+                            <?php  } else{ ?>
+                           
+                             
+                             <?php $a=$facamigos->amigosfac;
+                                 if($a >=1&& $a <=249 ){?>
+                                <TD BGCOLOR="red"><?php echo $a ?></TD>
+                                <?php  }else if($a >=250&&$a <=499 ){ ?>
+                                <TD BGCOLOR="yellow"><?php echo $a ?></TD>
+                                <?php  }else if($a >=500&&$a <=749 ){ ?>
+                                <TD BGCOLOR="#90ecf5"><?php echo $a ?></TD>
+                                <?php  }else if($a >=750&&$a <=999 ){ ?>
+                                <TD BGCOLOR="#a7f597"><?php echo $a ?></TD>
+                                <?php  }else if($a >=1000){ ?>
+                                <TD BGCOLOR="green"><?php echo $a ?></TD>
+                            <?php  }?> 
+                             
+=======
                              
                                                           
                              
@@ -83,6 +132,7 @@ $db_default= $this->load->database('funcionarios', TRUE);?>
                              <td>0</td>
                              <?php  } else{ ?>
                                     <td><?php echo $facamigos->amigosfac?></td>
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
                              <?php  }?>
                              </tr> 
                           <?php } ?>

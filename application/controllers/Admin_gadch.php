@@ -95,7 +95,7 @@ class Admin_gadch extends CI_Controller {
 				 echo json_encode($jef);
 	}
 
-
+public function insertar_compartido(){
 
 			 if($this->input->post()){
 				 	$cantidad=$this->input->post('cantidad');
@@ -122,34 +122,12 @@ class Admin_gadch extends CI_Controller {
 						if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con exito";
  					 else echo "Error al Insertar";
 
+
 				 }
-<<<<<<< HEAD
-}
 
-
-         // if($id_i!=null ){
-                  if($this->input->post()){
-                                 $parametro['cantidad']=$this->input->post('cantidad');
-                                 $parametro['fecha']=date('Y:m:d H:m:s');
-                                 $parametro['id_funcionario']=$this->input->post('id_funcionario');
-                                 $parametro['id_usuario']=$id_i;
-                          if($this->input->post('tipo_red')=='facebook'){
-                                  if($this->madmin_gadch->insertar_compartido($parametro)==true) echo "Insertado con Exito";
-                                  else echo "Error al Insertar";
-                          }else{
-                                    echo "En Proceso";
-                          }
-
-                 }else{
-                           echo "En Proceso sin post";
-                 }
-=======
 			 }else{
 	     echo "En Proceso sin post";
 	   }
->>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
-
-         // }else $this->load->view('vlogin');
 
   }
 
@@ -203,7 +181,6 @@ class Admin_gadch extends CI_Controller {
 			header ("Location: $url");
 		}
   }
-<<<<<<< HEAD
     public function m_jefatura_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
     $cargo=$this->session->userdata('s_cargo');
@@ -227,12 +204,3 @@ class Admin_gadch extends CI_Controller {
         }else $this->load->view('vlogin');
     }
  }
-=======
-
-	public function buscador(){
-		//$id_twitter = $this->input->post('id_usuariot');
-		$jef = $this->madmin_gadch->buscador();
-		echo json_encode($jef);
-	}
-}
->>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
