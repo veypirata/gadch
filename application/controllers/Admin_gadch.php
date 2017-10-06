@@ -90,7 +90,7 @@ class Admin_gadch extends CI_Controller {
          echo json_encode($jef);
   }
 	public function compartido_mostrar(){
-				 $id_f = $this->input->post('id_f');
+				 $id_f = $this->input->post('id_funcioanrio');
 				 $jef = $this->madmin_gadch->compartido_mostrar($id_f);
 				 echo json_encode($jef);
 	}
