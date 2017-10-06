@@ -22,16 +22,9 @@ include'inc/include.php';
                               </center>
                             </div>
                           </div>
-<<<<<<< HEAD
-                     <div class="row">
-                              <div class="col-md-8" id="listar_redes">
-                                <center>
-                                  <input type="submit"  id="holaa" name="" value="prueba">
-                               </center>
-=======
-                            <div class="row">
+                <div class="row">
                               <div class="col-md-8" id="listar_redes" >
->>>>>>> 023b2294c0d41aac061692eb0cecca4e40c21645
+
                                <table id="tabla" class="display table table-condensed" collspacign="0" width="100%">
                                 <thead>
                                  <tr >

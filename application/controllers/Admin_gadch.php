@@ -21,7 +21,10 @@ class Admin_gadch extends CI_Controller {
       $secre = $this->madmin_gadch->secretaria($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_funcionario', $mostrarsecre);
-    }else $this->load->view('gadch_login');
+    }else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function direccion(){
@@ -32,7 +35,10 @@ class Admin_gadch extends CI_Controller {
       $dir = $this->madmin_gadch->direccion($direccion);
       $mostrardir= array('mostrar'=>$dir);
       $this->load->view('admin/admin_funcionario', $mostrardir);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function jefatura(){
@@ -43,7 +49,10 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->jefatura($jefatura);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
 
   public function cargo(){
@@ -55,9 +64,12 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->cargo($cargo,$contrato);
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_funcionario', $mostrarjef);
-    }else $this->load->view('gadch_login');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
-  
+
   public function cargo_p(){
       $cargo = $this->input->post('cargo');
 	$contrato = $this->input->post('contrato');
@@ -74,11 +86,21 @@ class Admin_gadch extends CI_Controller {
   }
   public function twitter_mostrar(){
          $id_twitter = $this->input->post('id_usuariot');
-                 $jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
-                 echo json_encode($jef);
+         $jef = $this->madmin_gadch->twitter_mostrar($id_twitter);
+         echo json_encode($jef);
   }
+	public function compartido_mostrar(){
+				 $id_f = $this->input->post('id_funcioanrio');
+				 $jef = $this->madmin_gadch->compartido_mostrar($id_f);
+				 echo json_encode($jef);
+	}
 
+
+<<<<<<< HEAD
  public function insertar_compartido(){
+=======
+  public function insertar_compartido(){
+>>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
           $id_i=$this->session->userdata('s_id_admin');
 
 		// if($id_i!=null ){
@@ -108,6 +130,7 @@ class Admin_gadch extends CI_Controller {
  					 else echo "Error al Insertar";
 
 				 }
+<<<<<<< HEAD
 }
 
 
@@ -127,6 +150,11 @@ class Admin_gadch extends CI_Controller {
                  }else{
                            echo "En Proceso sin post";
                  }
+=======
+			 }else{
+	     echo "En Proceso sin post";
+	   }
+>>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
 
          // }else $this->load->view('vlogin');
 
@@ -148,8 +176,11 @@ class Admin_gadch extends CI_Controller {
       $jef = $this->madmin_gadch->mostrarreporte();
       $mostrarjef= array('mostrar'=>$jef);
       $this->load->view('admin/admin_reportefacebook', $mostrarjef);
-    }else $this->load->view('vlogin');  
-      
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
+
   }
   public function m_secretaria_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
@@ -160,9 +191,12 @@ class Admin_gadch extends CI_Controller {
       $secre = $this->madmin_gadch->m_secretaria_f($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_reportefacebook', $mostrarsecre);
-    }else $this->load->view('vlogin');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
-  
+
   public function m_direccion_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
     $cargo=$this->session->userdata('s_cargo');
@@ -171,8 +205,12 @@ class Admin_gadch extends CI_Controller {
       $direc = $this->madmin_gadch->m_direccion_f($direccion);/*envia datos al modelo para la consulta*/
       $mostrardireccion= array('mostrar'=>$direc);
       $this->load->view('admin/admin_reportefacebook', $mostrardireccion);
-    }else $this->load->view('vlogin');
+		}else {
+			$url=  base_url();
+			header ("Location: $url");
+		}
   }
+<<<<<<< HEAD
     public function m_jefatura_facebook(){
     $id_i=$this->session->userdata('s_id_admin');
     $cargo=$this->session->userdata('s_cargo');
@@ -196,3 +234,12 @@ class Admin_gadch extends CI_Controller {
         }else $this->load->view('vlogin');
     }
  }
+=======
+
+	public function buscador(){
+		//$id_twitter = $this->input->post('id_usuariot');
+		$jef = $this->madmin_gadch->buscador();
+		echo json_encode($jef);
+	}
+}
+>>>>>>> 18d6ec37d2d752f1e8a4e205a4d341714373f2d7
