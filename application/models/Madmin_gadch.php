@@ -60,7 +60,7 @@
 		public function compartido_mostrar($id_f){
             $db_default= $this->load->database('funcionarios', TRUE);
 						$fecha=date('m');
-						$query=$db_default->query("SELECT tipo_red, sum(cantidad) AS total FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' GROUP BY tipo_red");
+						$query=$db_default->query("SELECT (SELECT sum(cantidad)  FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' AND tipo_red ='tw' ORDER by tipo_red ) as tw, (SELECT sum(cantidad)  FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' AND tipo_red ='fb' ORDER by tipo_red ) as fb");
 
             return $query->result();
     }
@@ -116,7 +116,7 @@
 
 		public function buscador(){
 			$db_default= $this->load->database('funcionarios', TRUE);
-			$query=$db_default->query("SELECT * FROM trabajadores");
+			$query=$db_default->query("SELECT * FROM trabajadores WHERE redesSociales=2");
 			return $query->result();
 		}
 
