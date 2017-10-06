@@ -78,10 +78,9 @@ class Admin_gadch extends CI_Controller {
                  echo json_encode($jef);
   }
 
-<<<<<<< HEAD
-  public function insertar_compartido(){
+ public function insertar_compartido(){
           $id_i=$this->session->userdata('s_id_admin');
-=======
+
 		// if($id_i!=null ){
 			 if($this->input->post()){
 				 	$cantidad=$this->input->post('cantidad');
@@ -109,7 +108,7 @@ class Admin_gadch extends CI_Controller {
  					 else echo "Error al Insertar";
 
 				 }
->>>>>>> 210d5e1fa263767d8aae6952e458a447e8e2a0de
+}
 
 
          // if($id_i!=null ){
@@ -157,6 +156,7 @@ class Admin_gadch extends CI_Controller {
     $cargo=$this->session->userdata('s_cargo');
     if($id_i!=null ){
       $secretaria = $this->input->post('secretaria');
+//      $secre = $this->madmin_gadch->m_secretaria_f($secretaria)
       $secre = $this->madmin_gadch->m_secretaria_f($secretaria);/*envia datos al modelo para la consulta*/
       $mostrarsecre= array('mostrar'=>$secre);
       $this->load->view('admin/admin_reportefacebook', $mostrarsecre);
@@ -173,4 +173,26 @@ class Admin_gadch extends CI_Controller {
       $this->load->view('admin/admin_reportefacebook', $mostrardireccion);
     }else $this->load->view('vlogin');
   }
-}
+    public function m_jefatura_facebook(){
+    $id_i=$this->session->userdata('s_id_admin');
+    $cargo=$this->session->userdata('s_cargo');
+    if($id_i!=null ){
+      $jefatura = $this->input->post('jefatura');
+      $direc = $this->madmin_gadch->m_jefatura_f($jefatura);/*envia datos al modelo para la consulta*/
+      $mostrarjefatura= array('mostrar'=>$direc);
+      $this->load->view('admin/admin_reportefacebook', $mostrarjefatura);
+    }else $this->load->view('vlogin');
+  }
+  
+    public function m_cargo_facebook(){
+        $id_i=$this->session->userdata('s_id_admin');
+        $cargo=$this->session->userdata('s_cargo');
+        if($id_i!=null ){
+          $cargo = $this->input->post('cargo');
+          $contrato = $this->input->post('contrato');
+          $direc = $this->madmin_gadch->m_cargo_f($cargo,$contrato);/*envia datos al modelo para la consulta*/
+          $mostrarcargo= array('mostrar'=>$direc);
+          $this->load->view('admin/admin_reportefacebook', $mostrarcargo);
+        }else $this->load->view('vlogin');
+    }
+ }
