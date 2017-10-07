@@ -164,7 +164,12 @@ $("body").on("click","#listar_redes #twitter ",function(event){
 
         '<option value="'+items.id_twitter+'" id="option" >Cuenta'+n+'</option>'
       );
-
+      var link=String(items.cuenta_twitter);
+      if(link.indexOf('http') != -1){
+        var link_twitter=link;
+      }else{
+        var link_twitter="https://www.twitter.com/"+items.cuenta_twitter;
+      }
         $('#cuentas').append(
             '<div class="col-md-12">'+
                          '<div class="panel panel-info">'+
@@ -183,7 +188,7 @@ $("body").on("click","#listar_redes #twitter ",function(event){
                                     ' </div>'+
                                 ' </div>'+
                              '</div>'+
-                            ' <a href="https://www.twitter.com/'+items.cuenta_twitter+'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="'+items.cuenta_twitter+'">'+
+                            ' <a href="'+link_twitter+'" target="_blank" data-toggle="tooltip" data-placement="bottom" title="'+items.cuenta_twitter+'">'+
                                 ' <div class="panel-footer">'+
                                     ' <span class="pull-left">Ir a Cueta '+n+'</span>'+
                                     ' <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>'+

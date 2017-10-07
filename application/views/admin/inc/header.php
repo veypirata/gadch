@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/material-fullpalette.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/css/bootstrap-select.min.css">
+    <script src="<?php echo base_url() ?>assets/admin/js/jquery-3.1.1.min.js"></script>
 
 
 
@@ -34,5 +35,13 @@
       .badge{
         background-color: #ffffff;
           color: #3c8dbc;
+      }
+      #amarillo{
+        background-color: yellow;
+        color: black;
+      }
+      #v_lechuga{
+        background-color: #7FFF00;
+        color: black;
       }
     </style>

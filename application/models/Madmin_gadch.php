@@ -57,6 +57,13 @@
 
             return $query->result();
     }
+		public function compartido_mostrar($id_f){
+            $db_default= $this->load->database('funcionarios', TRUE);
+						$fecha=date('m');
+						$query=$db_default->query("SELECT (SELECT sum(cantidad)  FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' AND tipo_red ='tw' ORDER by tipo_red ) as tw, (SELECT sum(cantidad)  FROM control_compartidos WHERE id_funcionario=$id_f and month(fecha) ='$fecha' AND tipo_red ='fb' ORDER by tipo_red ) as fb");
+
+            return $query->result();
+    }
     public function insertar_compartido($parametro){
             $db_default= $this->load->database('funcionarios', TRUE);
             $query=$db_default->insert('control_compartidos',$parametro);
@@ -89,9 +96,10 @@
                 ON tr.id_c = cc.id_funcionario
          WHERE cc.cantidad > 1");
         return $query;
-    }  
-    
+    }
+
     public function m_secretaria_f($secretaria){
+<<<<<<< HEAD
         $query=$this->db->query("SELECT * FROM trabajadores WHERE secretaria ='$secretaria' and redesSociales=2");
         return $query;
     }
@@ -121,6 +129,39 @@
     }
     
     
+=======
+        $query=$this->db->query("SELECT * FROM trabajadores tr WHERE tr.secretaria ='$secretaria' and  redesSociales=2");
+        return $query;
+    }
+
+     public function m_direccion_f($direccion){
+        $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
+                ON tr.id_c = cc.id_funcionario WHERE tr.direccion ='$direccion'");
+        return $query;
+    }
+     public function m_jefatura_f($jefatura){
+        $query=$this->db->query("SELECT * FROM trabajadores tr INNER JOIN control_compartidos cc
+                ON tr.id_c = cc.id_funcionario WHERE tr.jefatura ='$jefatura'");
+        return $query;
+    }
+
+    public function m_cargo_f($cargo='',$contrato=''){
+        if($cargo==1&&$contrato==1){
+            $query=$this->db->query("SELECT * FROM trabajadores where  redesSociales=2 ");
+        }else{
+            if($cargo!=1&&$contrato==1){
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE cargo ='$cargo' and redesSociales=2");
+            }else if($cargo==1&&$contrato!=1){
+                    $query=$this->db->query("SELECT * FROM trabajadores where contrato='$contrato' and redesSociales=2 ");
+            }else{
+                    $query=$this->db->query("SELECT * FROM trabajadores WHERE tr.cargo ='$cargo' and contrato='$contrato' and redesSociales=2");
+            }
+            }
+        return $query;
+    }
+
+
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
 //    fin Mostrar tabla de facebook de registros de cantidad de compartidos//-------------------
 
 		public function modificar_twitter($fechaA,$canAnte,$id_tw){
@@ -130,6 +171,12 @@
 		public function modificar_facebook($fechaA,$id_fb){
 			$db_default= $this->load->database('funcionarios', TRUE);
 			$db_default->query("UPDATE `facebook` SET  fecha_registro_actualizado='$fechaA' WHERE id_facebook=$id_fb");
+		}
+
+		public function buscador(){
+			$db_default= $this->load->database('funcionarios', TRUE);
+			$query=$db_default->query("SELECT * FROM trabajadores WHERE redesSociales=2");
+			return $query->result();
 		}
 
   }

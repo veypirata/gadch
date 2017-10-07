@@ -74,6 +74,10 @@ $db_default= $this->load->database('funcionarios', TRUE);?>
                                 <TD BGCOLOR="green"><?php echo $x ?></TD>
                             <?php  }?>
                              
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
                             <?php $t=$dato->twitt;
                                  if($t ==0){?>
                                 <TD BGCOLOR="red"><?php echo $t ?></TD>
@@ -121,6 +125,20 @@ $db_default= $this->load->database('funcionarios', TRUE);?>
                                 <TD BGCOLOR="green"><?php echo $a ?></TD>
                             <?php  }?> 
                              
+<<<<<<< HEAD
+=======
+=======
+                             
+                                                          
+                             
+                             <td><?php echo $dato->twitt?></td>
+                             <td><?php echo $dato->sumaredes?></td>  
+                             <?php if (empty($facamigos->amigosfac)) {?>
+                             <td>0</td>
+                             <?php  } else{ ?>
+                                    <td><?php echo $facamigos->amigosfac?></td>
+>>>>>>> 91d056aaa5981bac7f6e3705a03c9f893c2faec3
+>>>>>>> 648c1d7ea54022fe192d16f47adc66111161339d
                              <?php  }?>
                              </tr> 
                           <?php } ?>
